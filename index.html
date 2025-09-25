@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AP Ticket - Penjualan Tiket Pesawat</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1502989642968-94fbdc9eace4') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+      font-weight: bold;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 18px;
+    }
+
+    nav {
+      background: rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    .cari-tiket {
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      text-align: center;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 12px;
+    }
+
+    .cari-tiket input, .cari-tiket button {
+      padding: 10px;
+      margin: 8px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .cari-tiket input {
+      width: 40%;
+    }
+
+    .cari-tiket button {
+      background: #ffcc00;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cari-tiket button:hover {
+      background: #ffaa00;
+    }
+
+    .maskapai {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      gap: 20px;
+    }
+
+    .maskapai img {
+      width: 180px;
+      height: 100px;
+      object-fit: contain;
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .maskapai img:hover {
+      transform: scale(1.1);
+    }
+
+    .slideshow {
+      position: relative;
+      max-width: 600px;
+      margin: 50px auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0px 6px 12px rgba(0,0,0,0.6);
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+    }
+
+    .fade {
+      animation: fadeEffect 1.5s;
+    }
+
+    @keyframes fadeEffect {
+      from {opacity: 0.4;}
+      to {opacity: 1;}
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 12px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .dots {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: rgba(255,255,255,0.6);
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active, .dot:hover {
+      background-color: #ffcc00;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.7);
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 28px; }
+      .maskapai img { width: 120px; height: 70px; }
+      .cari-tiket input { width: 80%; display: block; margin: 10px auto; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AP Ticket</h1>
+    <p>Penjualan Tiket Pesawat Domestik dengan Harga Terbaik</p>
+  </header>
+
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="#">Cari Tiket</a>
+    <a href="#">Promo</a>
+    <a href="#">Kontak</a>
+  </nav>
+
+  <section class="cari-tiket">
+    <form>
+      <input type="text" placeholder="Kota Asal" required>
+      <input type="text" placeholder="Kota Tujuan" required>
+      <input type="date" required>
+      <button type="submit">Cari Tiket</button>
+    </form>
+  </section>
+
+  <section class="maskapai">
+    <img src="https://1000logos.net/wp-content/uploads/2020/09/Garuda-Indonesia-Logo.png" alt="Garuda Indonesia">
+    <img src="https://1000logos.net/wp-content/uploads/2021/04/AirAsia-logo.png" alt="AirAsia">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Lion_Air_Logo.svg" alt="Lion Air">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/Batik_Air_logo.svg" alt="Batik Air">
+  </section>
+
+  <section class="slideshow">
+    <img class="slides fade" src="https://images.unsplash.com/photo-1605733513569-1f8b7d6b82f8" alt="Tangan memegang tiket boarding pass">
+    <img class="slides fade" src="https://images.unsplash.com/photo-1533106418989-88406c7cc8ca" alt="Pesawat di bandara">
+    <img class="slides fade" src="https://images.unsplash.com/photo-1504196606672-aef5c9cefc92" alt="Suasana boarding gate">
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </section>
+
+  <div class="dots">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 AP Ticket. Semua Hak Dilindungi.</p>
+  </footer>
+
+  <script>
+    let slideIndex = 0;
+    let timer;
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("slides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      timer = setTimeout(showSlides, 4000);
+    }
+
+    function plusSlides(n) {
+      clearTimeout(timer);
+      slideIndex += n-1;
+      showSlides();
+    }
+
+    function currentSlide(n) {
+      clearTimeout(timer);
+      slideIndex = n-1;
+      showSlides();
+    }
+
+    showSlides();
+  </script>
+</body>
+</html>
+add initial website
